@@ -16,12 +16,12 @@ const PostItem = ({ auth,
     return (
         <div className="post">
             <div className="avatar">
-                <a href="/">
+                <Link to={`/profiles/${userId}`}>
                     <img src={avatar} alt="" />
                     {displayName}
-                </a>
+                </Link>
                 <br />
-                <span><Moment format="DD/MM-hh:mm">{date}</Moment></span>
+                <span><Moment format="DD/MM-h:mm">{date}</Moment></span>
             </div>
             <p>{text}</p>
             {

@@ -136,7 +136,7 @@ export const deleteComment = (commentId) => async dispatch => {
     try {
         await axios.put(`/api/posts/removecomment/${commentId}`);
 
-        dispatch(setAlert('Comment Removed', 'success'));
+        dispatch(setAlert('Comment Removed', 'danger'));
     } catch (err) {
         dispatch(setAlert('Error', 'danger'))
         dispatch({

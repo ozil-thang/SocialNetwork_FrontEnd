@@ -16,13 +16,13 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
                 loading ? <Spinner /> :
                     <Fragment>
                         <h1 className="large text-primary">Users</h1>
-                        
+
                         <div className="profiles">
                             {profiles.length > 0 ? (
                                 profiles.map(profile => (
                                     <ProfileItem key={profile.userId} profile={profile} />
                                 )))
-                                : <h4>No profiles found ...</h4>}
+                                : <Spinner />}
                         </div>
                     </Fragment>
             }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const ProfileItem = ({
     profile: {
         userId,
-        userName,
+        displayName,
         avatar,
         status,
         company,
@@ -17,7 +17,7 @@ const ProfileItem = ({
         <div className="profile bg-light">
             <img src={avatar} alt="not-found" className="round-img" />
             <div>
-                <h2>{userName}</h2>
+                <h2>{displayName}</h2>
                 <p>{status} {company && <span> at {company}</span>}</p>
                 <p className="my-1">{location && <span>{location}</span>}</p>
                 <Link to={`/profiles/${userId}`} className="btn btn-primary">View Profile</Link>

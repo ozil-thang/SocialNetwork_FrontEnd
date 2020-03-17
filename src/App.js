@@ -36,7 +36,7 @@ export default class App extends Component {
     const state = store.getState();
     console.log('state', state)
 
-    const likeHubConnection = new HubConnectionBuilder().withUrl("http://localhost:5000/likeHub").build();
+    const likeHubConnection = new HubConnectionBuilder().withUrl("https://socialnetworkappv1.herokuapp.com/likeHub").build();
     likeHubConnection.start().then(() => console.log('LikeHub connection started'))
       .catch(err => console.log(err));
 
@@ -60,7 +60,7 @@ export default class App extends Component {
 
     })
 
-    const commentHubConnection = new HubConnectionBuilder().withUrl("http://localhost:5000/commentHub").build();
+    const commentHubConnection = new HubConnectionBuilder().withUrl("https://socialnetworkappv1.herokuapp.com/commentHub").build();
     commentHubConnection.start().then(() => console.log('CommentHub connection started'))
       .catch(err => console.log(err))
 

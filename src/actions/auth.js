@@ -15,7 +15,7 @@ export const loadUser = () => async dispatch => {
     if (localStorage.token) {
         setAuthToken(localStorage.token)
 
-        const onlineUserHubConnection = new HubConnectionBuilder().withUrl("http://localhost:5000/onlineUserHub", { accessTokenFactory: () => localStorage.token }).build();
+        const onlineUserHubConnection = new HubConnectionBuilder().withUrl("https://socialnetworkappv1.herokuapp.com/onlineUserHub", { accessTokenFactory: () => localStorage.token }).build();
 
         onlineUserHubConnection.on("onlineUser", onlineUser => {
             console.log('onlineUser: ', onlineUser);
