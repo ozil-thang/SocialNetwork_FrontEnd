@@ -22,8 +22,14 @@ import Posts from './components/posts/Posts';
 import Post from './components/post/Post'
 import { HubConnectionBuilder } from '@aspnet/signalr'
 import { ADD_COMMENT, REMOVE_COMMENT } from './actions/types'
+import axios from 'axios'
 
 export default class App extends Component {
+
+  constructor(props) {
+    super(props);
+    axios.defaults.baseURL = 'https://socialnetworkappv1.herokuapp.com/';
+  }
 
   async componentDidMount() {
     if (localStorage.token) {
@@ -66,19 +72,19 @@ export default class App extends Component {
 
     commentHubConnection.on("updateComment", (commentDto, count, postId, type) => {
 
-      if(type === 'add'){
+      if (type === 'add') {
         store.dispatch({
           type: ADD_COMMENT,
           payload: { postId, commentDto, count }
         });
       }
-      else{
+      else {
         store.dispatch({
           type: REMOVE_COMMENT,
-          payload: {postId, commentDto, count}
+          payload: { postId, commentDto, count }
         })
       }
-      
+
     })
 
   }
